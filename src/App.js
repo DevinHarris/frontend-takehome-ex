@@ -5,7 +5,7 @@ import fetchRewards from "./api/fetchRewards";
 const App = () => {
 
     const [occupations, setOccupations] = useState([]);
-    const [states, setStates] = useState([]);
+    const [statesEl, setStatesEl] = useState([]);
 
     useEffect(() => {
 
@@ -18,17 +18,17 @@ const App = () => {
             });
 
             setOccupations(data.occupations);
-            setStates(data.states);
+            setStatesEl(data.states);
 
         }
 
         getData()
 
-    }, [occupations, states])
+    }, [])
 
     return (
         <div className="container">
-            <Form occupations={occupations} states={states} />
+            <Form occupations={occupations} states={statesEl} />
         </div>
     )
 }
