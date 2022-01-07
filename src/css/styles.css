@@ -48,6 +48,9 @@ html {
     background-color: #b1afaf;
     border: none;
     outline: none;
+    -webkit-transform: translateY(-.5em);
+    -ms-transform: translateY(-.5em);
+    -o-transform: translateY(-.5em);
     transform: translateY(-.5em);
 }
 
@@ -68,9 +71,30 @@ select {
     text-transform: uppercase;
     width: 50%;
     -webkit-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .form-btn:hover {
     background-color: lightblue;
     cursor: pointer;
+}
+
+@media (max-width: 1150px) {
+
+    .form {
+        padding: 2.5em;
+    }
+
+
+    .form-field > input {
+        width: 95%;
+    }
+
+    select {
+        display: block;
+        margin-bottom: 2em;
+        width: 95%;
+    }
 }
