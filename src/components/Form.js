@@ -35,13 +35,15 @@ const Form = ({ occupations, states }) => {
     }
 
     return (
-        <div className="form">
+        <div className={`form ${submitStatus ? 'submit-success' : ''}`}>
             <div className="form-heading">
-                <h2>Sign up</h2>
+                <h2>
+                    { `${ submitStatus ? 'Success!' : 'Sign up' }` }
+                </h2>
             </div>
             {
                 submitStatus ? (
-                    <h3>Success, thanks for the signing up!</h3>
+                    <h3>Thanks for the signing up!</h3>
                 ) : (
                     <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-field">

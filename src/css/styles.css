@@ -43,6 +43,9 @@ html {
     margin-bottom: 2em;
     width: 80%;
     -webkit-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .form-field > input:hover, .form-field > input:focus, .form-field > input:active {
@@ -80,6 +83,16 @@ select {
 .form-btn:hover {
     background-color: lightblue;
     cursor: pointer;
+}
+
+.submit-success {
+    /* background-image: linear-gradient(45deg, rgb(44 207 158),#7bcfbb); */
+    background-color: rgb(44 207 158);
+    color: #fff;
+    -webkit-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
 }
 
 @media (max-width: 1150px) {
