@@ -10,7 +10,7 @@ const Form = ({ occupations, states }) => {
 
     const occupationsOpts = occupations.map(occupation => {
         return (
-            <option className="occupation__option" key={occupation}>
+            <option className="occupation__option" key={occupation} value={occupation}>
                 {occupation}
             </option>
         )
@@ -18,7 +18,7 @@ const Form = ({ occupations, states }) => {
 
     const statesOpts = states.map(state => {
         return (
-            <option className="state__option" key={state.abbreviation}>
+            <option className="state__option" key={state.abbreviation} value={state.name}>
                 {state.name}
             </option>
         )
@@ -27,6 +27,9 @@ const Form = ({ occupations, states }) => {
     const onSubmit = (data) => {
 
         fetchRewards.post('/form', data).then(res => {
+
+            console.log(res);
+
             if (res.status === 200) {
                 setSubmitStatus(true);
             }
@@ -54,9 +57,11 @@ const Form = ({ occupations, states }) => {
                 </div>
                 <div className="form-field">
                     <select className="form__select" {...register("occupation")} required>
+                        <option disabled selected>Please select an occupation.</option>
                         { occupationsOpts }
                     </select>
                     <select className="form__select" {...register("state")} required>
+                        <option disabled selected>Please select a state.</option>
                         { statesOpts }
                     </select>
                 </div>
