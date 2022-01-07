@@ -28,8 +28,6 @@ const Form = ({ occupations, states }) => {
 
         fetchRewards.post('/form', data).then(res => {
 
-            console.log(res);
-
             if (res.status === 200) {
                 setSubmitStatus(true);
             }
