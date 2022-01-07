@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Form from './components/Form';
+import fetchRewards from "./api/fetchRewards";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+    const [occupations, setOccupations] = useState([]);
+    const [states, setStates] = useState([]);
+
+    useEffect(() => {
+
+        const getData = async () => {
+            const { data } = await fetchRewards.get('/form', {
+                params: {
+                    format: 'json',
+                    origin: '*'
+                }
+            });
+
+            setOccupations(data.occupations);
+            setStates(data.states);
+
+        }
+
+        getData()
+
+    }, [occupations, states])
+
+    return (
+        <div className="container">
+            <Form occupations={occupations} states={states} />
+        </div>
+    )
 }
 
 export default App;
